@@ -13,7 +13,6 @@ const userSchema = new Schema({
     },
     salt: {
         type: String,
-        required: true,
     },
     password: {
         type: String,
@@ -45,7 +44,7 @@ userSchema.pre("save", function (next) {
     this.salt = salt;
     this.password = hashedPassword;
 
-    next();
+    // next();
 });
 
 const User = model("user", userSchema);
